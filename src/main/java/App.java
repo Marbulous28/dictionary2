@@ -10,10 +10,11 @@ public class App {
     String layout = "templates/layout.vtl";
 
     get("/", (request, response) -> {
-      Map<String, Object> model = new HashMap<String, Object>();
-      model.put("template", "templates/index.vtl");
-      return new ModelAndView(model, layout);
-    }, new VelocityTemplateEngine());
+     Map<String, Object> model = new HashMap<String, Object>();
+     model.put("definition", request.session().attribute("definition"));
+     model.put("template", "templates/index.vtl");
+     return new ModelAndView(model, layout);
+   }, new VelocityTemplateEngine());
 
     post("/definitions", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
