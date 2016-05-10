@@ -42,7 +42,7 @@ public class AppTest extends FluentTest {
   }
 
   @Test
-  public void multipleTasksAreDisplayedTest() {
+  public void multipleDefinitionsAreDisplayedTest() {
     goTo("http://localhost:4567/definitions/new");
     fill("#definition").with("A Thing");
     submit(".btn");
@@ -52,6 +52,22 @@ public class AppTest extends FluentTest {
     click("a", withText("View definitions"));
     assertThat(pageSource()).contains("A Thing");
     assertThat(pageSource()).contains("Another Thing");
+  }
+
+  @Test
+  public void definitionShowPageDisplaysDefinition() {
+    goTo("http://localhost:4567/definitions/new");
+    fill("#definition").with("Hello");
+    submit(".btn");
+    click("a", withText("View definitions"));
+    click("a", withText("Hello"));
+    assertThat(pageSource()).contains("Hello");
+  }
+
+  @Test
+  public void definitionNotFoundMessageShown() {
+    goTo("http://localhost:4567/definitions/999");
+    assertThat(pageSource()).contains("Definition not found");
   }
 
 }

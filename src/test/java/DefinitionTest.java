@@ -3,6 +3,11 @@ import static org.junit.Assert.*;
 
 public class DefinitionTest {
 
+  @After
+  public void tearDown() {
+    Definition.clear();
+  }
+
   @Test
   public void Definition_instantiatesCorrectly_true() {
     Definition myDefinition = new Definition("A Thing");
@@ -48,9 +53,6 @@ public class DefinitionTest {
   public void find_returnsNullWhenNoDefinitionFound_null() {
     assertTrue(Definition.find(999) == null);
   }
-
-
-
 
 
 

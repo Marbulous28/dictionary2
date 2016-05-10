@@ -38,6 +38,14 @@ public class App {
      return new ModelAndView(model, layout);
    }, new VelocityTemplateEngine());
 
+   get("/definitions/:id", (request, response) -> {
+   HashMap<String, Object> model = new HashMap<String, Object>();
+   Definition definition = Definition.find(Integer.parseInt(request.params(":id")));
+   model.put("definition", definition);
+   model.put("template", "templates/definition.vtl");
+   return new ModelAndView(model, layout);
+ }, new VelocityTemplateEngine());
+
 
 
   }
