@@ -20,17 +20,28 @@ public class AppTest extends FluentTest {
   @Test
   public void rootTest() {
     goTo("http://localhost:4567/");
-    assertThat(pageSource()).contains("Definitions!");
+    assertThat(pageSource()).contains("Dictionary!");
+    assertThat(pageSource()).contains("View Word List");
+    assertThat(pageSource()).contains("Add a New Word");
   }
 
   @Test
-  public void definitionIsCreatedTest() {
+  public void wordIsCreatedTest() {
     goTo("http://localhost:4567/");
-    click("a", withText("Add a new definition"));
-    fill("#definition").with("A Thing");
+    click("a", withText("Add a New Word"));
+    fill("#word").with("Banana");
     submit(".btn");
-    assertThat(pageSource()).contains("Your definition has been saved.");
+    assertThat(pageSource()).contains("Your word has been saved.");
   }
+
+  // @Test
+  // public void definitionIsCreatedTest() {
+  //   goTo("http://localhost:4567/");
+  //   click("a", withText("Add a new definition"));
+  //   fill("#definition").with("A Thing");
+  //   submit(".btn");
+  //   assertThat(pageSource()).contains("Your definition has been saved.");
+  // }
 
   @Test
   public void definitionIsDisplayedTest() {
