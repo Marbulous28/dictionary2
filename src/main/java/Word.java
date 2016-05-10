@@ -14,4 +14,12 @@ public class Word {
   public String getWord() {
     return mWord;
   }
+
+  public static ArrayList<Word> all() {
+    return instances;
+  }
+
+ public static void clear() {
+    instances.clear();
+  }
 }
