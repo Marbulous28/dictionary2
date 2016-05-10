@@ -34,6 +34,15 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("Your word has been saved.");
   }
 
+  @Test
+  public void wordIsDisplayedTest() {
+    goTo("http://localhost:4567/words/new");
+    fill("#word").with("Banana");
+    submit(".btn");
+    click("a", withText("View words"));
+    assertThat(pageSource()).contains("Banana");
+  }
+
   // @Test
   // public void definitionIsCreatedTest() {
   //   goTo("http://localhost:4567/");
@@ -80,5 +89,7 @@ public class AppTest extends FluentTest {
     goTo("http://localhost:4567/definitions/999");
     assertThat(pageSource()).contains("Definition not found");
   }
+
+
 
 }
