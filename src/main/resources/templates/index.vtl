@@ -1,11 +1,14 @@
 <h1>Definitions!</h1>
-#if ($definition)
-  <p>$definition.getDefinition()</p>
+
+#if ($definitions)
+  <ul>
+    #foreach ($definition in $definitions)
+      <li>$definition.getDefinition()</li>
+    #end
+  </ul>
 #else
   <p>No definitions!</p>
 #end
-
-<p>Add a new Task:</p>
 
 <form action="/definitions" method="post">
   <label for="definition">Definition</label>
