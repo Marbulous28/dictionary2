@@ -30,5 +30,12 @@ public class DefinitionTest {
     assertEquals(Definition.all().size(), 0);
   }
 
+  @Test
+  public void getId_definitionsInstantiateWithAnID_1() {
+    Definition.clear();
+    Definition myDefinition = new Definition("A Thing");
+    assertEquals(1, myDefinition.getId());
+  }
+
 
 }

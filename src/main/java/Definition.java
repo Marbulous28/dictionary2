@@ -3,10 +3,12 @@ import java.util.ArrayList;
 public class Definition {
   private String mDefinition;
   private static ArrayList<Definition> instances = new ArrayList<Definition>();
+  private int mId;
 
   public Definition(String definition) {
     mDefinition = definition;
     instances.add(this);
+    mId = instances.size();
   }
 
   public String getDefinition() {
@@ -19,6 +21,10 @@ public class Definition {
 
   public static void clear() {
     instances.clear();
+  }
+
+  public int getId() {
+    return mId;
   }
 
 }
