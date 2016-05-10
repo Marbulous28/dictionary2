@@ -64,53 +64,10 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("Add a definition to Hello");
   }
 
-  // @Test
-  // public void definitionIsCreatedTest() {
-  //   goTo("http://localhost:4567/");
-  //   click("a", withText("Add a new definition"));
-  //   fill("#definition").with("A Thing");
-  //   submit(".btn");
-  //   assertThat(pageSource()).contains("Your definition has been saved.");
-  // }
-
-  @Test
-  public void definitionIsDisplayedTest() {
-    goTo("http://localhost:4567/definitions/new");
-    fill("#definition").with("A Thing");
-    submit(".btn");
-    click("a", withText("View definitions"));
-    assertThat(pageSource()).contains("A Thing");
-  }
-
-  @Test
-  public void multipleDefinitionsAreDisplayedTest() {
-    goTo("http://localhost:4567/definitions/new");
-    fill("#definition").with("A Thing");
-    submit(".btn");
-    goTo("http://localhost:4567/definitions/new");
-    fill("#definition").with("Another Thing");
-    submit(".btn");
-    click("a", withText("View definitions"));
-    assertThat(pageSource()).contains("A Thing");
-    assertThat(pageSource()).contains("Another Thing");
-  }
-
-  @Test
-  public void definitionShowPageDisplaysDefinition() {
-    goTo("http://localhost:4567/definitions/new");
-    fill("#definition").with("Hello");
-    submit(".btn");
-    click("a", withText("View definitions"));
-    click("a", withText("Hello"));
-    assertThat(pageSource()).contains("Hello");
-  }
-
   @Test
   public void definitionNotFoundMessageShown() {
     goTo("http://localhost:4567/definitions/999");
     assertThat(pageSource()).contains("Definition not found");
   }
-
-
 
 }

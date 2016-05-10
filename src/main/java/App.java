@@ -30,11 +30,14 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    post("/definitions", (request,response) -> {
+    post("/definitions", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
+      Word word = Word.find(Integer.parseInt(request.queryParams("wordId")));
       String definition = request.queryParams("definition");
       Definition newDefinition = new Definition(definition);
-      model.put("template", "templates/success.vtl");
+      word.addDefinition(newDefinition);
+      model.put("word", word);
+      model.put("template", "templates/word-definitions-success.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
