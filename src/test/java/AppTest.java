@@ -22,4 +22,13 @@ public class AppTest extends FluentTest {
     goTo("http://localhost:4567/");
     assertThat(pageSource()).contains("Definitions!");
   }
+
+  @Test
+  public void taskIsCreatedTest() {
+    goTo("http://localhost:4567/");
+    fill("#definition").with("A Thing");
+    submit(".btn");
+    assertThat(pageSource()).contains("Your definition has been saved.");
+  }
+
 }
