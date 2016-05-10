@@ -37,5 +37,21 @@ public class DefinitionTest {
     assertEquals(1, myDefinition.getId());
   }
 
+  @Test
+  public void find_returnsDefinitionWithSameId_secondDefinition() {
+    Definition firstDefinition = new Definition("A Thing");
+    Definition secondDefinition = new Definition("Another Thing");
+    assertEquals(Definition.find(secondDefinition.getId()), secondDefinition);
+  }
+
+  @Test
+  public void find_returnsNullWhenNoDefinitionFound_null() {
+    assertTrue(Definition.find(999) == null);
+  }
+
+
+
+
+
 
 }
