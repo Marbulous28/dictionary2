@@ -1,4 +1,4 @@
-# Dictionary APP
+# Dictionary App
 ## Peter Beach
 
 ## Description:
