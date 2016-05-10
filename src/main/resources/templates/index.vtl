@@ -1,18 +1,3 @@
 <h1>Definitions!</h1>
 
-#if ($definitions)
-  <ul>
-    #foreach ($definition in $definitions)
-      <li>$definition.getDefinition()</li>
-    #end
-  </ul>
-#else
-  <p>No definitions!</p>
-#end
-
-<form action="/definitions" method="post">
-  <label for="definition">Definition</label>
-  <input id="definition" name="definition" type="text">
-
-  <button type="submit" class="btn btn-default">Add definition</button>
-</form>
+<a href="/definitions/new">Add a new definition</a>
