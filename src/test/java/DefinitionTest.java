@@ -15,4 +15,13 @@ public class DefinitionTest {
     assertEquals("A Thing", myDefinition.getDefinition());
   }
 
+  @Test
+  public void all_returnsAllInstancesOfDefinition_true() {
+    Definition firstDefinition = new Definition("A Thing");
+    Definition secondDefinition = new Definition("Another Thing");
+    assertTrue(Definition.all().contains(firstDefinition));
+    assertTrue(Definition.all().contains(secondDefinition));
+  }
+
+
 }
