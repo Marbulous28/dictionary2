@@ -33,6 +33,10 @@ public class Word {
     return mDefinitions;
   }
 
+  public void addDefinition(Definition definition) {
+    mDefinitions.add(definition);
+  }
+
   public static Word find(int id) {
     try {
       return instances.get(id - 1);
