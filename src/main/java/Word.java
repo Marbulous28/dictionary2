@@ -22,4 +22,16 @@ public class Word {
  public static void clear() {
     instances.clear();
   }
+
+  public int getId() {
+    return mId;
+  }
+
+  public static Word find(int id) {
+    try {
+      return instances.get(id - 1);
+    } catch (IndexOutOfBoundsException e) {
+      return null;
+    }
+  }
 }
