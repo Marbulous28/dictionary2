@@ -43,6 +43,16 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("Banana");
   }
 
+  @Test
+  public void wordShowPageDisplaysName() {
+    goTo("http://localhost:4567/words/new");
+    fill("#word").with("Hello");
+    submit(".btn");
+    click("a", withText("View words"));
+    click("a", withText("Hello"));
+    assertThat(pageSource()).contains("Hello");
+  }
+
   // @Test
   // public void definitionIsCreatedTest() {
   //   goTo("http://localhost:4567/");
